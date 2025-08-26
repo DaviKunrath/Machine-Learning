@@ -1,0 +1,44 @@
+##########################CAPÍTULO 3 DO TUTORIAL DE PYTHON######################
+
+list1 = ['oi', 'meu' , 293, 8]                                 #listas são mutáveis, tuplas são imutáveis
+list2 = [51, 'fine']
+list1.extend(list2)                                            #adicionar uma lista a outra
+list1.pop()                                                    #remove o elemento da lista, quando sem entrada, remove o último item
+list1
+
+type(('now'))                                                  #string
+type(('now',))                                                 #tupla
+
+somedict = {'apple':12, 'banana':25, 'lemon': 'unknown'}       #dicionário
+somedict['apple'] = somedict['banana'] + 23                    #os elementos são acessados por um índice
+somedict['orange'] = 85                                        #adicionei elemento no dicionário
+somedict['orange'] -= 10                                       #comi 10 laranjas
+somedict['apple'] = 0                                          #comi todas as maçãs
+del somedict['lemon']                                          #tirar elemento do dicionário
+somedict
+
+from collections import OrderedDict                            #parece o dicionário, mas lembra a ordem de inserção dos elementos
+somevar = OrderedDict(a=23, b=32)
+somevar["something"] = 643
+list(somevar)
+
+someset1 = {243, 54}                                            #criando conjunto a partir de um dicionário
+someotherset = {243, 54, "ke", 2.3}                             #idem
+someset2 = set([243, 54])                                       #idem, a partir de uma lista
+someset3 = set(["aa", 243, 54, 243, 1, "aa"])
+someset3                                                        #cada elemento é único no conjunto
+list(someset3)                                                  #transforma em lista
+
+set1 = set(["aa", 243, 54.3, 243, 1])                           #operações entre conjuntos
+set2 = set(["aa", 4.3, 1, "aa"])
+set2.add(54.3)                                                  #adds element to set
+set1.discard("aa")                                              #removes element from set
+set3 = set1.intersection(set1, set2)                            #interseção dos conjuntos
+set3
+somefset = frozenset(["aa", 243, 54, 243, 1, "aa"])             #congela os elementos, vira um conjunto imutável
+
+somelist = ["Now", "my", 293, 43.2]
+someotherlist = list(somelist)
+somelist.append('something')                                    #adiciona termo ao final da lista
+someotherlist                                                   #não possui o termo adicionado, pois vem antes do append
+somelist
