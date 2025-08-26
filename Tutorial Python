@@ -1,4 +1,0 @@
-print("Hello World")
-
-somelist = ( 'oi', 'meu' , 293, 8)
-somelist[0]
