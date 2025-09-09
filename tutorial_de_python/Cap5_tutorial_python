@@ -1,0 +1,367 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOnojunq5L7KoNQTEZc6vyP",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DaviKunrath/Machine-Learning/blob/main/tutorial_de_python_Cap5.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EFHIY0y8CH0c",
+        "outputId": "dcf90c52-0d2b-4931-c529-b6a75bff15dd"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "7.611940298507462"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ],
+      "source": [
+        "##########################CAPÍTULO 3 DO TUTORIAL DE PYTHON######################\n",
+        "\n",
+        "list1 = ['oi', 'meu' , 293, 8]                                 #listas são mutáveis, tuplas são imutáveis\n",
+        "list2 = [51, 'fine']\n",
+        "list1.extend(list2)                                            #adicionar uma lista a outra\n",
+        "list1.pop()                                                    #remove o elemento da lista, quando sem entrada, remove o último item\n",
+        "list1\n",
+        "\n",
+        "type(('now'))                                                  #string\n",
+        "type(('now',))                                                 #tupla\n",
+        "\n",
+        "somedict = {'apple':12, 'banana':25, 'lemon': 'unknown'}       #dicionário\n",
+        "somedict['apple'] = somedict['banana'] + 23                    #os elementos são acessados por um índice\n",
+        "somedict['orange'] = 85                                        #adicionei elemento no dicionário\n",
+        "somedict['orange'] -= 10                                       #comi 10 laranjas\n",
+        "somedict['apple'] = 0                                          #comi todas as maçãs\n",
+        "del somedict['lemon']                                          #tirar elemento do dicionário\n",
+        "somedict\n",
+        "\n",
+        "from collections import OrderedDict                            #parece o dicionário, mas lembra a ordem de inserção dos elementos\n",
+        "somevar = OrderedDict(a=23, b=32)\n",
+        "somevar[\"something\"] = 643\n",
+        "list(somevar)\n",
+        "\n",
+        "someset1 = {243, 54}                                            #criando conjunto a partir de um dicionário\n",
+        "someotherset = {243, 54, \"ke\", 2.3}                             #idem\n",
+        "someset2 = set([243, 54])                                       #idem, a partir de uma lista\n",
+        "someset3 = set([\"aa\", 243, 54, 243, 1, \"aa\"])\n",
+        "someset3                                                        #cada elemento é único no conjunto\n",
+        "list(someset3)                                                  #transforma em lista\n",
+        "\n",
+        "set1 = set([\"aa\", 243, 54.3, 243, 1])                           #operações entre conjuntos\n",
+        "set2 = set([\"aa\", 4.3, 1, \"aa\"])\n",
+        "set2.add(54.3)                                                  #adds element to set\n",
+        "set1.discard(\"aa\")                                              #removes element from set\n",
+        "set3 = set1.intersection(set1, set2)                            #interseção dos conjuntos\n",
+        "set3\n",
+        "somefset = frozenset([\"aa\", 243, 54, 243, 1, \"aa\"])             #congela os elementos, vira um conjunto imutável\n",
+        "\n",
+        "somelist = [\"Now\", \"my\", 293, 43.2]\n",
+        "someotherlist = list(somelist)\n",
+        "somelist.append('something')                                    #adiciona termo ao final da lista\n",
+        "someotherlist                                                   #não possui o termo adicionado, pois vem antes do append\n",
+        "somelist"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "##############################CAPÍTULO 4########################################\n",
+        "\n",
+        "def addmult(x, y):                                              #Função para divisão da multiplicação de x e y sobre a soma de x e y\n",
+        "    adding = x + y\n",
+        "    multiplying = x * y\n",
+        "    print(multiplying / adding)\n",
+        "\n",
+        "z = addmult(2.0, 10.0)\n",
+        "z\n",
+        "\n",
+        "def print_and_return(x, y):                                     #Função que define soma e multiplicação de x e y, mas só printa a multiplicação\n",
+        "    adding = x + y\n",
+        "    multiplying = x * y\n",
+        "    print(multiplying)\n",
+        "\n",
+        "print_and_return(10.2, 30.0)\n",
+        "\n",
+        "def print_and_return(x, y):\n",
+        "    adding = x + y\n",
+        "    multiplying = x * y\n",
+        "    print(multiplying)\n",
+        "\n",
+        "somevar = print_and_return(10.2, 30.0)\n",
+        "somevar is None\n",
+        "somevar\n",
+        "type(somevar)                                                   #Retorna que somevar é um NoneType, mas ele ainda mantém o seu resultado\n",
+        "\n",
+        "def somefunc():\n",
+        "    somevar = 421\n",
+        "    print(\"Value inside somefunc(\",somevar,\")\")\n",
+        "    return\n",
+        "\n",
+        "somevar = 123\n",
+        "somefunc()\n",
+        "print(\"Value outside somefunc(\",somevar,\")\")\n",
+        "\n",
+        "def somefunc():\n",
+        "    print(\"Value inside somefunc(\",something,\")\")\n",
+        "    return\n",
+        "\n",
+        "something = 482\n",
+        "somefunc()\n",
+        "print(\"Value outside somefunc(\",something,\")\")                  #Printa a string, valor dentro do parênteses e a outra string depois\n",
+        "\n",
+        "def somefunc(x, y, z=1):\n",
+        "    adding = 2 * x + y + z\n",
+        "    return adding * z\n",
+        "\n",
+        "somefunc(x=10.2, y=30.0, z=3)\n",
+        "\n",
+        "def somefunc(x, y):\n",
+        "    adding = 2 * x + y\n",
+        "    return adding * 4\n",
+        "\n",
+        "somefunc(10.2, 30.0)\n",
+        "\n",
+        "somefunc = \"  Something Else\"\n",
+        "\n",
+        "somefunc = lambda x, y: 2 * x + y                               #A função lamba no Python é escrita desse jeito e introduz\n",
+        "                                                                #uma função com operações curtas e simples\n",
+        "somefunc(10.2, 30.0)"
+      ],
+      "metadata": {
+        "id": "sW7_XtwLCdu7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "49adf193-11a3-4477-84c6-9e0152e53cf8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1.6666666666666667\n",
+            "306.0\n",
+            "306.0\n",
+            "Value inside somefunc( 421 )\n",
+            "Value outside somefunc( 123 )\n",
+            "Value inside somefunc( 482 )\n",
+            "Value outside somefunc( 482 )\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "50.4"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#################################CAPÍTULO 5#####################################\n",
+        "\n",
+        "x = True\n",
+        "y = False\n",
+        "type(x)\n",
+        "type(y)                                                                         #Tipo bool, assume valor True ou False somente\n",
+        "\n",
+        "\n",
+        "a = 312                                                                         #Definindo valor de a\n",
+        "x = (42 == 3) #does 42 equals 3?                                                #Retorna False\n",
+        "y = (a == 311) #does the variable \"a\" equals 311?                               #Retorna False\n",
+        "z = (a == 312) #does the variable \"a\" equals 312?                               #Retorna True\n",
+        "a == 312.14                                                                     #A função == compara se duas variáveis são iguais\n",
+        "x                                                                               #Usar == faz a variável virar do tipo bool\n",
+        "y\n",
+        "z\n",
+        "\n",
+        "41 >= 41 #is 41 greater or equal to 41?                                         #> e < também retornam valor do tipo bool\n",
+        "41 < 33 #is 41 less than 33?\n",
+        "\n",
+        "51 > 123.7 or 31 < 4 #is either (51 greater than 123.7) or (31 less than 4)?    #Dá para usar or ou and para combinar comparações\n",
+        "410 > 133 and 45.2 < 45.7 #is both (410 greater than 133) or (45.2 less than 45.7)?\n",
+        "\n",
+        "\n",
+        "x = True\n",
+        "\n",
+        "if x:\n",
+        "    print(\"x is True\")\n",
+        "else:\n",
+        "    print(\"x is False\")\n",
+        "\n",
+        "y = False\n",
+        "\n",
+        "if y:\n",
+        "    print(\"y is True\")\n",
+        "else:\n",
+        "    print(\"y is False\")\n",
+        "\n",
+        "\n",
+        "if 44 > 41:\n",
+        "    print(\"44 is bigger than 41 =]\")\n",
+        "else:\n",
+        "    print(\"44 is not bigger than 41 =[\")\n",
+        "\n",
+        "x = 2\n",
+        "\n",
+        "if x == 1:\n",
+        "    print(\"x is 1\")\n",
+        "elif x == 0:\n",
+        "    print(\"x is 0\")\n",
+        "else:\n",
+        "    print(\"x is neither 1 nor 0\")\n",
+        "\n",
+        "\n",
+        "x = 1\n",
+        "y = 0\n",
+        "z = 2\n",
+        "w = -13\n",
+        "\n",
+        "if x:                                                                           #Valores int diferentes de 0 entram em condição de loop\n",
+        "    print('x \"evaluates\" to True')                                              #e são True se são diferentes de 0\n",
+        "if y:\n",
+        "    print('y \"evaluates\" to True')\n",
+        "if z:\n",
+        "    print('z \"evaluates\" to True')\n",
+        "if w:\n",
+        "    print('w \"evaluates\" to True')\n",
+        "\n",
+        "\n",
+        "x = [3, 2, 4]\n",
+        "y = [3, 2, 4]\n",
+        "v = [3, 4, 2]\n",
+        "w = [3, 1, 4]\n",
+        "z = x\n",
+        "\n",
+        "if x == y:                                                                      #Comparação de matrizes, retorna o print das que são True\n",
+        "    print(\"x == y evaluates to True\")\n",
+        "if x == v:\n",
+        "    print(\"x == v evaluates to True\")\n",
+        "if x == w:\n",
+        "    print(\"x == w evaluates to True\")\n",
+        "if x == z:\n",
+        "    print(\"x == z evaluates to True\")\n",
+        "if y == w:\n",
+        "    print(\"y == w evaluates to True\")\n",
+        "if y == z:\n",
+        "    print(\"y == z evaluates to True\")\n",
+        "\n",
+        "\n",
+        "x = [3, 2, 4]\n",
+        "y = [3, 2, 4]\n",
+        "v = [3, 4, 2]\n",
+        "w = [3, 1, 4]\n",
+        "z = x\n",
+        "\n",
+        "if x is y:\n",
+        "    print(\"x and y are the same object\")\n",
+        "if x is v:\n",
+        "    print(\"x and v are the same object\")\n",
+        "if x is w:\n",
+        "    print(\"x and w are the same object\")\n",
+        "if x is z:\n",
+        "    print(\"x and z are the same object\")\n",
+        "if y is w:\n",
+        "    print(\"y and w are the same object\")\n",
+        "if y is z:\n",
+        "    print(\"y and z are the same object\")\n",
+        "\n",
+        "\n",
+        "x = [3, 2, 4]\n",
+        "y = [3, 2, 4]\n",
+        "v = [3, 4, 2]\n",
+        "w = [3, 1, 4]\n",
+        "z = x\n",
+        "\n",
+        "if id(x) == id(y):                                                              #Comparar id é o mesmo que dizer se o objeto é igualzinho ao outro\n",
+        "    print(\"x and y are the same object\")                                        #repare que por mais que x e y sejam a mesma matriz,\n",
+        "if id(x) == id(v):                                                              #a id é diferente\n",
+        "    print(\"x and v are the same object\")\n",
+        "if id(x) == id(w):\n",
+        "    print(\"x and w are the same object\")\n",
+        "if id(x) == id(z):\n",
+        "    print(\"x and z are the same object\")\n",
+        "if id(y) == id(w):\n",
+        "    print(\"y and w are the same object\")\n",
+        "if id(y) == id(z):\n",
+        "    print(\"y and z are the same object\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZGi0JuZdja8E",
+        "outputId": "373a5a77-4253-498c-e77e-ddaf24805356"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x is True\n",
+            "y is False\n",
+            "44 is bigger than 41 =]\n",
+            "x is neither 1 nor 0\n",
+            "x \"evaluates\" to True\n",
+            "z \"evaluates\" to True\n",
+            "w \"evaluates\" to True\n",
+            "x == y evaluates to True\n",
+            "x == z evaluates to True\n",
+            "y == z evaluates to True\n",
+            "x and z are the same object\n",
+            "x and z are the same object\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "oRcX4d1cog1M"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
